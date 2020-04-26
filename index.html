@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./icons/dead.png" type="image/x-icon">
+    <title>Mafia Manager</title>
+</head>
+<body>
+    
+    <b>Mafia Manager v0.3</b>
+    <div class="player">
+        <div><b>ИГРОКИ</b></div>
+        <textarea name="" id="players" cols="30" rows="10" title="Указывайте имена игроков через запятую" placeholder="Указывайте имена игроков через запятую"></textarea>
+        Кол-во игроков: <span id="playerscount"></span>
+    </div>
+    <div class="rolesettings"><div><b>РОЛИ</b></div>
+        Кол-во мафии: <input type="text" name="" id="mafia" value="1" class="inputnum">
+        <div></div>
+        Кол-во комиссаров: <input type="text" name="" id="detective" value="1" class="inputnum">
+        <div></div>
+        Кол-во докторов: <input type="text" name="" id="doctor" value="1" class="inputnum">
+        <div></div>
+        Кол-во проституток: <input type="text" name="" id="prostituts" value="1" class="inputnum">
+        <div>Общее кол-во ролей:<span id="roles"></span></div>
+    </div>
+    <button onclick="generate()">Генерировать</button>
+    <div id="playersandroles">
+    </div>
+    <div>
+        <b>Заметки</b>
+        <div></div>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+    </div>
+    <script>
+        let players = []
+ 
+        var count = players.length-1
+        var list_generated = false
+        setInterval(() => {
+            mafia = parseInt(document.getElementById("mafia").value)
+            detective = parseInt(document.getElementById("detective").value)
+            doctor = parseInt(document.getElementById("doctor").value)
+            prostituts = parseInt(document.getElementById("prostituts").value)
+            players = document.getElementById("players").value.split(',')
+            document.getElementById("roles").innerHTML=mafia+detective+doctor+prostituts
+            document.getElementById("playerscount").innerHTML=players.length
+        }, 1);
+        function generate() {
+            document.getElementById("playersandroles").innerHTML= ""
+            ban = 0
+            if(players.length < (mafia+detective+doctor+prostituts)){
+                alert("Игроков меньше чем общее кол-во ролей("+ (parseInt(mafia)+parseInt(detective)+parseInt(doctor)+parseInt(prostituts)) +")\n Укажите меньше ролей, или позовите больше игроков")
+                return null
+            }
+            while (mafia > 0) {
+                player = Math.round(Math.random()*players.length-1)
+                while (players[player]==undefined) {
+                    player = Math.round(Math.random()*players.length-1)
+                }
+                ban++
+                document.getElementById("playersandroles").innerHTML+=("<div><input type=\"checkbox\" id=\""+ban+"\"><label title=\"Нажмите, что бы отметить игрока мёртвым\"for=\""+ban+"\"></label>"+players[player]+":<b>Мафия</b><input type=\"text\" placeholder=\"Кол-во голосов против\"></div>")
+                mafia--
+                players.splice(player, 1)
+            }
+            while (detective > 0) {
+                player = Math.round(Math.random()*players.length-1)
+                while (players[player]==undefined) {
+                    player = Math.round(Math.random()*players.length-1)
+                }
+                ban++
+                document.getElementById("playersandroles").innerHTML+=("<div><input type=\"checkbox\" id=\""+ban+"\"><label title=\"Нажмите, что бы отметить игрока мёртвым\"for=\""+ban+"\"></label>"+players[player]+":<b>детектив</b><input type=\"text\" placeholder=\"Кол-во голосов против\"></div>")
+                detective--
+                players.splice(player, 1)
+            }
+            while (doctor > 0) {
+                player = Math.round(Math.random()*players.length-1)
+                while (players[player]==undefined) {
+                    player = Math.round(Math.random()*players.length-1)
+                }
+                ban++
+                document.getElementById("playersandroles").innerHTML+=("<div><input type=\"checkbox\" id=\""+ban+"\"><label title=\"Нажмите, что бы отметить игрока мёртвым\"for=\""+ban+"\"></label>"+players[player]+":<b>Доктор</b><input type=\"text\" placeholder=\"Кол-во голосов против\"></div>")
+                doctor--
+                players.splice(player, 1)
+            }
+            while (prostituts > 0) {
+                player = Math.round(Math.random()*players.length-1)
+                while (players[player]==undefined) {
+                    player = Math.round(Math.random()*players.length-1)
+                }
+                ban++
+                document.getElementById("playersandroles").innerHTML+=("<div><input type=\"checkbox\" id=\""+ban+"\"><label title=\"Нажмите, что бы отметить игрока мёртвым\"for=\""+ban+"\"></label>"+players[player]+":<b>Проститутка</b><input type=\"text\" placeholder=\"Кол-во голосов против\"></div>")
+                prostituts--
+                players.splice(player, 1)
+            }
+            while (players.length > 0) {
+                player = Math.round(Math.random()*players.length-1)
+                while (players[player]==undefined) {
+                    player = Math.round(Math.random()*players.length-1)
+                }
+                ban++
+                document.getElementById("playersandroles").innerHTML+=("<div><input type=\"checkbox\" id=\""+ban+"\"><label title=\"Нажмите, что бы отметить игрока мёртвым\"for=\""+ban+"\"></label>"+players[player]+":<b>Мирный Житель</b><input type=\"text\" placeholder=\"Кол-во голосов против\"></div>")
+                players.splice(player, 1)
+            }
+        }
+
+    </script>
+</body>
+</html>
