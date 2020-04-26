@@ -75,3 +75,6 @@ label:before {
 input[type="checkbox"]:checked + label:before {
     background: url(../icons/dead.png);
 }
+a{
+    text-decoration: none;
+}
