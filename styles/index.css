@@ -55,25 +55,53 @@ label {
 	display: inline-block;
 	cursor: pointer;
 	position: relative;
-	padding-left: 25px;
-	margin-right: 15px;
+	padding-left: 2px;
+	margin-right: 2px;
 	font-size: 13px;
 }
-input[type="checkbox"]{
+input.dead[type="checkbox"]{
     display: none;
 }
-
-
-label:before {
+label.dead:before{
     content: "";
     display: inline-flex;
     width: 32px;
     height: 32px;
     position: relative;
-    background: white
+    background: rgb(255, 202, 202)
 }
-input[type="checkbox"]:checked + label:before {
+label.prost:before{
+    content: "";
+    display: inline-flex;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    background: rgb(80, 61, 77)
+}
+input.dead[type="checkbox"]:checked + label:before{
     background: url(../icons/dead.png);
+}
+
+input.prost[type="checkbox"]{
+    display: none;
+}
+input.prost[type="checkbox"]:checked + label:before{
+    background: purple;
+}
+label.check:before{
+    content: "";
+    display: inline-flex;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    background: rgb(243, 237, 186)
+}
+
+input.check[type="checkbox"]{
+    display: none;
+}
+input.check[type="checkbox"]:checked + label:before{
+    background: yellow;
 }
 a{
     text-decoration: none;
