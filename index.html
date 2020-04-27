@@ -9,7 +9,7 @@
     <title>Mafia Manager</title>
 </head>
 <body>
-    <a title="GitHub" href="https://github.com/mafia-mamager/mafia-manager.github.io"><b>Mafia Manager v0.3.1</b></a>
+    <a title="GitHub" href="https://github.com/mafia-mamager/mafia-manager.github.io"><b>Mafia Manager v0.3</b></a>
     <div class="player">
         <div><b>ИГРОКИ</b></div>
         <textarea name="" id="players" cols="30" rows="10" title="Указывайте имена игроков через запятую" placeholder="Указывайте имена игроков через запятую"></textarea>
@@ -60,8 +60,12 @@
                     player = Math.round(Math.random()*players.length-1)
                 }
                 ban++
-                document.getElementById("playersandroles").innerHTML+=("<div><input class=\"dead\" type=\"checkbox\" id=\""+ban+"\"><label class=\"dead\" title=\"Нажмите, что бы отметить игрока мёртвым\"for=\""+ban+"\"></label><input class=\"prost\" type=\"checkbox\" id=\""+ban+"prost\"><label class=\"prost\" title=\"Нажмите, что бы отметить игрока, на котором сидит проститутка\"for=\""+ban+"prost\"></label><input class=\"check\" type=\"checkbox\" id=\""+ban+"check\"><label class=\"check\" title=\"Нажмите, что бы отметить проверенного игрока\"for=\""+ban+"check\"></label>"+players[player]+":<b>Мафия</b><input type=\"text\" placeholder=\"Кол-во голосов против\"></div>")
-                mafia--
+                if (mafia==1) {
+                    document.getElementById("playersandroles").innerHTML+=("<div><input class=\"dead\" type=\"checkbox\" id=\""+ban+"\"><label class=\"dead\" title=\"Нажмите, что бы отметить игрока мёртвым\"for=\""+ban+"\"></label><input class=\"prost\" type=\"checkbox\" id=\""+ban+"prost\"><label class=\"prost\" title=\"Нажмите, что бы отметить игрока, на котором сидит проститутка\"for=\""+ban+"prost\"></label><input class=\"check\" type=\"checkbox\" id=\""+ban+"check\"><label class=\"check\" title=\"Нажмите, что бы отметить проверенного игрока\"for=\""+ban+"check\"></label>"+players[player]+":<b>Дон мафии</b><input type=\"text\" placeholder=\"Кол-во голосов против\"></div>")
+                } else {
+                    document.getElementById("playersandroles").innerHTML+=("<div><input class=\"dead\" type=\"checkbox\" id=\""+ban+"\"><label class=\"dead\" title=\"Нажмите, что бы отметить игрока мёртвым\"for=\""+ban+"\"></label><input class=\"prost\" type=\"checkbox\" id=\""+ban+"prost\"><label class=\"prost\" title=\"Нажмите, что бы отметить игрока, на котором сидит проститутка\"for=\""+ban+"prost\"></label><input class=\"check\" type=\"checkbox\" id=\""+ban+"check\"><label class=\"check\" title=\"Нажмите, что бы отметить проверенного игрока\"for=\""+ban+"check\"></label>"+players[player]+":<b>Мафия</b><input type=\"text\" placeholder=\"Кол-во голосов против\"></div>")
+                }
+                                mafia--
                 players.splice(player, 1)
             }
             while (detective > 0) {
@@ -70,7 +74,7 @@
                     player = Math.round(Math.random()*players.length-1)
                 }
                 ban++
-                document.getElementById("playersandroles").innerHTML+=("<div><input class=\"dead\" type=\"checkbox\" id=\""+ban+"\"><label class=\"dead\" title=\"Нажмите, что бы отметить игрока мёртвым\"for=\""+ban+"\"></label><input class=\"prost\" type=\"checkbox\" id=\""+ban+"prost\"><label class=\"prost\" title=\"Нажмите, что бы отметить игрока, на котором сидит проститутка\"for=\""+ban+"prost\"></label><input class=\"check\" type=\"checkbox\" id=\""+ban+"check\"><label class=\"check\" title=\"Нажмите, что бы отметить проверенного игрока\"for=\""+ban+"check\"></label>"+players[player]+":<b>детектив</b><input type=\"text\" placeholder=\"Кол-во голосов против\"></div>")
+                document.getElementById("playersandroles").innerHTML+=("<div><input class=\"dead\" type=\"checkbox\" id=\""+ban+"\"><label class=\"dead\" title=\"Нажмите, что бы отметить игрока мёртвым\"for=\""+ban+"\"></label><input class=\"prost\" type=\"checkbox\" id=\""+ban+"prost\"><label class=\"prost\" title=\"Нажмите, что бы отметить игрока, на котором сидит проститутка\"for=\""+ban+"prost\"></label><input class=\"check\" type=\"checkbox\" id=\""+ban+"check\"><label class=\"check\" title=\"Нажмите, что бы отметить проверенного игрока\"for=\""+ban+"check\"></label>"+players[player]+":<b>Детектив</b><input type=\"text\" placeholder=\"Кол-во голосов против\"></div>")
                 detective--
                 players.splice(player, 1)
             }
