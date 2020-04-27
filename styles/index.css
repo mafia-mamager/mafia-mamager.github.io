@@ -79,7 +79,7 @@ label.prost:before{
     background: rgb(80, 61, 77)
 }
 input.dead[type="checkbox"]:checked + label:before{
-    background: url(../icons/dead.png);
+    background: red;
 }
 
 input.prost[type="checkbox"]{
