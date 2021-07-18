@@ -1,108 +1,20 @@
-html{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
     font-family: 'Montserrat', sans-serif;
 }
 
-
-.player {
-    width: 230px;
-    height: 240px;
-    border: 2px solid gray;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
-}
-.rolesettings {
-    width: 230px;
-    height: 250px;
-    border: 2px solid gray;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
-}
-.playersandroles {
-    position: relative;
-    width: 400px;
-    height: 600px;
-    border: 2px solid gray;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
-}
-.inputnum{    
-    width: 95%;
-    height: 10%;}
 #players {
-    width: 95%;
-    height: 85%;
+    display: block;
+    width: 250px;
+    height: 250px;
     resize: none;
 }
 
-input{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    vertical-align: middle;
+table, td {
+    border-collapse: collapse;
 }
-textarea{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-}
-button{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-}
-label {
-    vertical-align: middle;
-	display: inline-block;
-	cursor: pointer;
-	position: relative;
-	padding-left: 2px;
-	margin-right: 2px;
-	font-size: 13px;
-}
-input.dead[type="checkbox"]{
-    display: none;
-}
-label.dead:before{
-    content: "";
-    display: inline-flex;
-    width: 32px;
-    height: 32px;
-    position: relative;
-    background: rgb(255, 202, 202)
-}
-label.prost:before{
-    content: "";
-    display: inline-flex;
-    width: 32px;
-    height: 32px;
-    position: relative;
-    background: rgb(80, 61, 77)
-}
-input.dead[type="checkbox"]:checked + label:before{
-    background: red;
-}
-
-input.prost[type="checkbox"]{
-    display: none;
-}
-input.prost[type="checkbox"]:checked + label:before{
-    background: purple;
-}
-label.check:before{
-    content: "";
-    display: inline-flex;
-    width: 32px;
-    height: 32px;
-    position: relative;
-    background: rgb(243, 237, 186)
-}
-
-input.check[type="checkbox"]{
-    display: none;
-}
-input.check[type="checkbox"]:checked + label:before{
-    background: rgb(255, 187, 0);
-}
-a{
-    text-decoration: none;
+td {
+    border: 1px solid black;
+    padding-right: 5px;
 }
